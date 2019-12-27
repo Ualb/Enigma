@@ -12,9 +12,13 @@ typedef struct
 // blue es la cara izquierda del rotor 
 // red es su contracara derecha
 void initialize (Rotor *rotor, char blue, char red);
+
 // gira el rotor o hace avanzar en una posicion
-void rotate (Rotor rotor);
+void rotate (Rotor *rotor);
+
 // encuentra la pareja del color opuesto
-// 1 es azul y 0 es red
-int match (Rotor rotor, int face);
+// 1 es azul (busca el azul) y 0 es red
+int match (Rotor *rotor, Rotor *rotor2, int face, int position);
+
 char position (); 
+

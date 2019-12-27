@@ -42,15 +42,45 @@ void initialize (Rotor *rotor, char blue, char red)
     }
 }
 
-void rotate (Rotor rotor)
+void rotate (Rotor *rotor)
 {
-    // nada todavia
+    for (int i = 0; i < LENGHT; i++)
+    {
+        if (++(rotor->blue[i]) > 89)
+        {
+            rotor->blue[i] = 32;
+        }
+        else if (rotor->blue[i] == 32)
+        {
+            rotor->blue[i] = 65;
+        }
+        else
+        {
+            rotor->blue[i] += 1;
+        }
+    }
 }
 
-int match (Rotor rotor, int face)
+int match (Rotor *rotor, Rotor *rotor2, int face, int position)
 {
-    // nada todavia
-    return 0;
+    for (int i = 0; i < LENGHT; i++)
+    {
+        if (face == 1)
+        {
+            if (rotor->blue[i] == rotor2->blue[position])
+            {
+                return i;
+            }
+        }
+        else if (face == 0)
+        {
+            if (rotor->red[i] == rotor2->red[position])
+            {
+                return i;
+            }
+        }
+    }
+    return -1;
 }
 
 char position ()
