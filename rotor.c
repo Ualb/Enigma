@@ -83,8 +83,21 @@ int match (Rotor *rotor, int face, int position)
     return -1;
 }
 
-char position ()
+int jumper (Rotor *start, int face, int position, Rotor *end)
 {
-    // nada todavia
-    return ' ';
+    if (face == 1)
+    {
+        if (start->blue[position] == end->red[position])
+        {
+            return position;
+        }
+    } 
+    else if (face == 0)
+    {
+        if (start->red[position] == end->blue[position])
+        {
+            return position;
+        }
+    }    
+    return -1;
 } 
