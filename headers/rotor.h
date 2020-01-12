@@ -18,7 +18,7 @@ void rotate (Rotor *rotor);
 
 // encuentra la pareja del color opuesto
 // 1 es azul (busca el azul) y 0 es red
-int match (Rotor *rotor, Rotor *rotor2, int face, int position);
+int match (Rotor *rotor, int face, int position);
 
 char position (); 
 

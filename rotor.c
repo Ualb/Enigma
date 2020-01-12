@@ -61,20 +61,20 @@ void rotate (Rotor *rotor)
     }
 }
 
-int match (Rotor *rotor, Rotor *rotor2, int face, int position)
+int match (Rotor *rotor, int face, int position)
 {
     for (int i = 0; i < LENGHT; i++)
     {
         if (face == 1)
         {
-            if (rotor->blue[i] == rotor2->blue[position])
+            if (rotor->blue[i] == rotor->red[position])
             {
                 return i;
             }
         }
         else if (face == 0)
         {
-            if (rotor->red[i] == rotor2->red[position])
+            if (rotor->red[i] == rotor->blue[position])
             {
                 return i;
             }
