@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "rotor.c"
+#include "reflector.c"
 #include <stdlib.h>
 
 int main (void) 
@@ -10,11 +11,13 @@ int main (void)
     initialize(rotor1, 'L', 'B');
     initialize(rotor2, 'K', 'O');
 
-    
-    /*for (int i = 0; i < LENGHT; i++)
+    Reflect *reflect = (Reflect *) malloc(LENGHT);
+
+    initializeReflect(reflect, 'Z');
+    for (int i = 0; i < LENGHT; i++)
     {
-        printf("%c -> %c\n", rotor1->blue[i], rotor1->red[i]);
-    } */
+        printf("%c -> %c -> %c\n", rotor1->blue[i], rotor1->red[i], reflect->glass[i]);
+    } 
      
     return 0;
 }

@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "rotor.h": "c",
+        "reflector.h": "c"
+    }
+}
