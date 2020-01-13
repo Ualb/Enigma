@@ -59,6 +59,21 @@ void rotate (Rotor *rotor)
             rotor->blue[i] += 1;
         }
     }
+    for (int i = 0; i < LENGHT; i++)
+    {
+        if (++(rotor->red[i]) > 89)
+        {
+            rotor->red[i] = 32;
+        }
+        else if (rotor->red[i] == 32)
+        {
+            rotor->red[i] = 65;
+        }
+        else
+        {
+            rotor->red[i] += 1;
+        }
+    }
 }
 
 int match (Rotor *rotor, int face, int position)
