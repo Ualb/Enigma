@@ -19,9 +19,3 @@ void rotate (Rotor *rotor);
 // encuentra la pareja del color opuesto
 // 1 es azul (busca el azul) y 0 es red
 int match (Rotor *rotor, int face, int position);
-
-// busca en otro rotor en la cara opuesta
-// la posicion de la letra correcta
-// 1 es azul (busca el azul) y 0 es red
-int jumper (Rotor *start, int face, int position, Rotor *end); 
-

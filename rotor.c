@@ -80,6 +80,7 @@ int match (Rotor *rotor, int face, int position)
 {
     for (int i = 0; i < LENGHT; i++)
     {
+        // se busca en la roja
         if (face == 1)
         {
             if (rotor->blue[i] == rotor->red[position])
@@ -87,6 +88,7 @@ int match (Rotor *rotor, int face, int position)
                 return i;
             }
         }
+        // se busca en la uzul
         else if (face == 0)
         {
             if (rotor->red[i] == rotor->blue[position])
@@ -97,22 +99,3 @@ int match (Rotor *rotor, int face, int position)
     }
     return -1;
 }
-
-int jumper (Rotor *start, int face, int position, Rotor *end)
-{
-    if (face == 1)
-    {
-        if (start->blue[position] == end->red[position])
-        {
-            return position;
-        }
-    } 
-    else if (face == 0)
-    {
-        if (start->red[position] == end->blue[position])
-        {
-            return position;
-        }
-    }    
-    return -1;
-} 
