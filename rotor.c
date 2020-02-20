@@ -99,3 +99,25 @@ int match (Rotor *rotor, int face, int position)
     }
     return -1;
 }
+
+int searchLetter (Rotor *rotor, int face, char letter) 
+{
+    for (int i = 0; i < LENGHT; i++)
+    {
+        if (face == 1) 
+        {
+            if (rotor->blue[i] == letter)
+            {
+                return i;
+            }
+        } 
+        else
+        {
+            if (rotor->red[i] == letter)
+            {
+                return i;
+            }
+        }
+    }
+    return -1;    
+}
