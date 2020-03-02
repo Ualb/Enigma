@@ -2,13 +2,16 @@
 #include "rotor.c"
 #include "reflector.c"
 #include <stdlib.h>
+#include <string.h>
 
 #define BLUE 1
 #define RED 0
 
+#define MAX_INPUT_LENT 100
+
 int main (void) 
 {
-    Rotor *rotor1 = (Rotor *) malloc(LENGHT * 2); //lengt is 26
+    /* Rotor *rotor1 = (Rotor *) malloc(LENGHT * 2); //lengt is 27
     Rotor *rotor2 = (Rotor *) malloc(LENGHT * 2);
     
     initialize(rotor1, 'A', 'B');
@@ -29,5 +32,12 @@ int main (void)
 
     printf("\n%c", reflect->glass[positionRotor2]);
      
+    return 0; */
+    char *text = (char *) malloc(MAX_INPUT_LENT);
+
+    printf("Enigma Cifrer Program\n");
+    printf("input>");
+    gets(text);
+    printf("%s, %d", text, strlen(text));
     return 0;
 }
