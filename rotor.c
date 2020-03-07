@@ -1,5 +1,4 @@
 #include "headers\rotor.h"
-#include <ctype.h>
 #include <stdio.h>
 
 void initialize (Rotor *rotor, char blue, char red)
