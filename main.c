@@ -1,15 +1,18 @@
 #include <stdio.h>
-#include "rotor.c"
-#include "reflector.c"
 #include <stdlib.h>
 #include <string.h>
+#include "rotor.c"
+#include "reflector.c"
 
 #define BLUE 1
 #define RED 0
 
-#define MAX_INPUT_LENT 100
+#define MAX_INPUT_LENT 1000
 
-int main (void) 
+void ERROR_HAPPEND(int code);
+char *INPUT_FILE(char *file_path);
+
+int main(int argc, char *argv[])
 {
     /* Rotor *rotor1 = (Rotor *) malloc(LENGHT * 2); //lengt is 27
     Rotor *rotor2 = (Rotor *) malloc(LENGHT * 2);
@@ -33,11 +36,63 @@ int main (void)
     printf("\n%c", reflect->glass[positionRotor2]);
      
     return 0; */
-    char *text = (char *) malloc(MAX_INPUT_LENT);
 
-    printf("Enigma Cifrer Program\n");
-    printf("input>");
-    gets(text);
-    printf("%s, %d", text, strlen(text));
+    // [1] que hacer -c cifrar, -d decifrar
+    // [2] donde esta el texto, archivo
+    if (argc >= 2)
+    {
+        if (strcmp(argv[1], "-c"))
+        {
+            // cipher
+        }
+        else if (strcmp(argv[1], "-d"))
+        {
+            // descipher
+        }
+        else
+        {
+            // error
+        }
+    }
+    else
+    {
+        ERROR_HAPPEND(1);
+    }
     return 0;
+}
+
+void ERROR_HAPPEND(int code)
+{
+    switch (code)
+    {
+    case 1:
+        printf("Es necesario la direccion del archivo, use enigma help");
+        break;
+
+    case 2:
+        printf("El archivo no existe o no ha podido ser encontrado");
+        exit(0);
+        break;
+
+    default:
+        printf("El programa no ha podido ejecutar la accion");
+        exit(0);
+        break;
+    }
+}
+
+char *INPUT_FILE(char *file_path)
+{
+    FILE *file = fopen(file_path, "r");
+    if (file != NULL)
+    {
+        char *text = malloc(MAX_INPUT_LENT);
+        fscanf(text, "%s", file);
+        fclose(file);
+        return text;
+    }
+    else
+    {
+        ERROR_HAPPEND(2);
+    }
 }
