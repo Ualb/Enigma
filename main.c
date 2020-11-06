@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
 
     initializeReflect(reflect, 'D');
 
+    // solo imprime como estan los rotores y el reflector inicializados
     for (int i = 0; i < LENGHT; i++)
     {
         printf("%c -> %c -> %c -> %c ->%c\n", rotor1->blue[i], rotor1->red[i], rotor2->blue[i], rotor2->red[i], reflect->glass[i]);
@@ -32,6 +33,10 @@ int main(int argc, char *argv[])
     // logica
     int positionRotor1 = match(rotor1, RED, 1);
     int positionRotor2 = match(rotor2, RED, positionRotor1);
+
+    // se debe hacer un ciclo, y asegurarse de aumentar el ciclo cada vuelta
+    // segun la especificasion de la maquina enigma
+    // utilizar rotate(rotor) para aumentar el orden
 
     printf("\n%c", reflect->glass[positionRotor2]);
      
